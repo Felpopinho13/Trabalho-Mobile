@@ -6,7 +6,7 @@ interface ICategoryRequest {   name: string;
 class CreateCategoryService {
   async execute({ name}: ICategoryRequest) {
     if (!name) {
-      throw new Error("Email incorreto");
+      throw new Error("Categoria incorreto");
     }
     const usersRepository = getCustomRepository(UsersRepositories);
     const userAlreadyExists = await usersRepository.findOne({

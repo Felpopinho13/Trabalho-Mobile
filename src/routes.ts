@@ -11,7 +11,7 @@ import { CreateClientController } from "./controller/client/CreateClientControll
 import { ListClientController } from "./controller/client/ListClientController";
 import { UpdateClientController} from "./controller/client/UpdateClientController";
 import { DeleteClientController} from "./controller/client/DeleteClienteController";
-import {AuthenticateClientController} from "./controller/client/AuthenticateUserController";
+import {AuthenticateClientController} from "./controller/client/AuthenticateClientController";
 
 import { CreateSalesController } from "./controller/sales/CreateSalesController";
 import { ListSalesController } from "./controller/sales/ListSalesController";

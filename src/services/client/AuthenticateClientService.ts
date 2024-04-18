@@ -10,8 +10,10 @@ class AuthenticateClientService {
         throw new Error("CPF incorreto");
     }
     const token = sign(
-      {         CPF:client.CPF,  },
+      { CPF:client.CPF, },
       "123456"
+      // { subject: (client.CPF?"cpf":"others"), expiresIn: "1d", }
+
     );    
     return token;
   }

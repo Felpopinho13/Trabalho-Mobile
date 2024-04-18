@@ -5,7 +5,7 @@ class CreateClientController {
   async handle(request: Request, response: Response) {
    const { nome, CPF, email, endereco, bairro, cidade, estado } = request.body;
    const createClientService = new CreateClientService();
-   const user = await createClientService.execute({
+   const client = await createClientService.execute({
     nome, 
     CPF, 
     email, 
@@ -15,7 +15,7 @@ class CreateClientController {
     estado
    });
  
-    return response.json(user);
+    return response.json(client);
   }
 }
 

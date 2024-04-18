@@ -15,9 +15,9 @@ class CreateClientService {
     if (clientAlreadyExists) {
       throw new Error("Client already exists");
     }
-    const user = clientRepository.create({ nome, CPF, email, endereco, bairro, cidade, estado });
-    await clientRepository.save(user);
-    return user;
+    const client = clientRepository.create({ nome, CPF, email, endereco, bairro, cidade, estado });
+    await clientRepository.save(client);
+    return client;
   }
 }
 export { CreateClientService };
