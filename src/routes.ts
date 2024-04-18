@@ -1,3 +1,5 @@
+// #region Zona de Imports
+
 import { Router } from "express";
 import { CreateUserController } from "./controller/users/CreateUserController";
 import { ListUsersController } from "./controller/users/ListUsersController";
@@ -18,9 +20,8 @@ import { DeleteSalesController} from "./controller/sales/DeleteSalesController";
 import { AuthenticateSalesController } from "./controller/sales/AuthenticateSalesController";
 
 import { ensureAuthenticated} from "./midleware/ensureAuthenticated";
-/*
-import { ensureAdmin} from "./middlewares/ensureAdmin";
-*/
+
+// #endregion 
 
 // #region Users
 const autenticationUserController  = new AuthenticateUserController();
@@ -71,7 +72,4 @@ router.put("/sales/:id", updateSalesController.handle);
 router.delete("/sales/:id", deleteSalesController.handle);
 // #endregion
 
-/*
-router.get("/users",  ensureAuthenticated,ensureAdmin,listUsersController.handle);
-*/
 export {router}
