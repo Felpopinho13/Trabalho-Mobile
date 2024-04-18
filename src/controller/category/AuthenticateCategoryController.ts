@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
-import { AuthenticateCategoryService } from "../../services/category/AuthenticateCategoryService";
+import { AuthenticateClientService } from "../../services/category/AuthenticateCategoryService";
 
 class AuthenticateCategoryController {
   async handle(request: Request, response: Response) {
-    const { id } = request.body;
+    const { name } = request.body;
 
-    const authenticateCategoryService = new AuthenticateCategoryService();
+    const authenticateCategoryService = new AuthenticateClientService();
 
     const token = await authenticateCategoryService.execute({
-      id
+      name
     });
     return response.json(token);
   }
