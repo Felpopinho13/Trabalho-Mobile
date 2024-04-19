@@ -17,8 +17,6 @@ import {Entity,PrimaryColumn,Column,CreateDateColumn,UpdateDateColumn,
         valor!: number;
     @Column()   
         desconto!: number;
-    @Column()
-        data!: Date;
     @CreateDateColumn()
         created_at!: Date;  
     @UpdateDateColumn()

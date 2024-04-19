@@ -4,7 +4,7 @@ import { UpdateSalesService } from "../../services/sales/UpdateSalesService";
 class UpdateSalesController {
 
   async handle(request: Request, response: Response) {
-    const { id, codproduto, produto, cliente, quantidade, valor, desconto, data } = request.body;
+    const { id, codproduto, produto, cliente, quantidade, valor, desconto } = request.body;
 
     const updateSalesService = new UpdateSalesService();
 
@@ -15,8 +15,7 @@ class UpdateSalesController {
       cliente, 
       quantidade, 
       valor, 
-      desconto, 
-      data
+      desconto
     });
  
     return response.json(sales);

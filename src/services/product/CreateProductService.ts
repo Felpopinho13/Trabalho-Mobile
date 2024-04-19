@@ -5,7 +5,7 @@ interface IProductRequest { nome: string; }
 class CreateProductService {
     async execute({ nome }: IProductRequest) {
     if (!nome) {
-      throw new Error("Name incorreto");
+      throw new Error("Nome incorreto");
     }
     const productRepository = getCustomRepository(ProductRepositories);
     const productAlreadyExists = await productRepository.findOne({
@@ -15,7 +15,7 @@ class CreateProductService {
         throw new Error("Product already exists");
     }
         // const passwordHash = await hash(password, 8);
-        const product = productRepository.create({ });
+        const product = productRepository.create({ nome });
         await productRepository.save(product);
         return product;
     }

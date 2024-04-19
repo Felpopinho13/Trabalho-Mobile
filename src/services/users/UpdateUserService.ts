@@ -4,7 +4,7 @@ interface IUserRequest {
     id: string;   name: string;     email: string;     admin: boolean;    password: string;
   }  
   class UpdateUserService {
-    async execute({ id, name,  admin , password }: IUserRequest) {
+    async execute({ id, name, email, admin , password }: IUserRequest) {
       const usersRepository = getCustomRepository(UsersRepositories);
       const userAlreadyExists = await usersRepository.findOne({
         id,
@@ -14,6 +14,7 @@ interface IUserRequest {
       }
       const passwordHash = await hash(password, 8)
       userAlreadyExists.name=name
+      userAlreadyExists.email=email
       userAlreadyExists.admin=admin
       userAlreadyExists.updated_at=new Date()
       userAlreadyExists.password=passwordHash

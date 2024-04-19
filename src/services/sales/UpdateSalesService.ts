@@ -1,10 +1,10 @@
 import { getCustomRepository } from "typeorm";
 import { SalesRepositories } from "../../repositories/SalesRepositories"; import { hash } from "bcryptjs";
 interface ISalesRequest {
-id: string; codproduto:number; produto: string; cliente: string; quantidade: number; valor: number; desconto: number; data: Date;
+id: string; codproduto:number; produto: string; cliente: string; quantidade: number; valor: number; desconto: number;
 }  
 class UpdateSalesService {
-async execute({ id, codproduto, produto, cliente, quantidade, valor, desconto, data }: ISalesRequest) {
+async execute({ id, codproduto, produto, cliente, quantidade, valor, desconto}: ISalesRequest) {
     const salesRepository = getCustomRepository(SalesRepositories);
     const salesAlreadyExists = await salesRepository.findOne({
     id,
@@ -18,7 +18,6 @@ async execute({ id, codproduto, produto, cliente, quantidade, valor, desconto, d
     salesAlreadyExists.quantidade=quantidade
     salesAlreadyExists.valor=valor
     salesAlreadyExists.desconto=desconto
-    salesAlreadyExists.data=data
     salesAlreadyExists.updated_at=new Date()
     return await salesRepository.update(id,salesAlreadyExists)
 }

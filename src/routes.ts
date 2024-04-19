@@ -21,9 +21,21 @@ import { AuthenticateSalesController } from "./controller/sales/AuthenticateSale
 
 import { ensureAuthenticated} from "./midleware/ensureAuthenticated";
 
+import { CreateCategoryController } from "./controller/category/CreateCategoryController";
+import { ListCategoryController } from "./controller/category/ListCategoryController";
+import { UpdateCategoryController } from "./controller/category/UpdateCategoryController";
+import { DeleteCategoryController } from "./controller/category/DeleteCategoryController";
+import { AuthenticateCategoryController } from "./controller/category/AuthenticateCategoryController";
+
+import { CreateProductController } from "./controller/product/CreateProductController";
+import { ListProductController } from "./controller/product/ListProductController";
+import { UpdateProductController } from "./controller/product/UpdateProductController";
+import { DeleteProductController } from "./controller/product/DeleteProductController"; 
+import { AuthenticateProductController } from "./controller/product/AuthenticateProductController";
+
 // #endregion 
 
-// #region Users
+// #region Users CHECK
 const autenticationUserController  = new AuthenticateUserController();
 const createUserController  = new CreateUserController();
 const listUsersController  = new ListUsersController();
@@ -40,7 +52,7 @@ router.put("/users/:id", updateUserController.handle);
 router.delete("/users/:id", deleteUserController.handle);
 // #endregion
 
-// #region Clients
+// #region Clients CHECK
 const authenticateClientController = new AuthenticateClientController();
 const createClientController = new CreateClientController();
 const listClientController = new ListClientController();
@@ -56,7 +68,7 @@ router.put("/clients/:id", updateClientController.handle);
 router.delete("/clients/:id", deleteClientController.handle);
 // #endregion
 
-// #region Sales
+// #region Sales CHECK
 const authenticateSalesController = new AuthenticateSalesController();
 const createSalesController = new CreateSalesController();
 const listSalesController = new ListSalesController();
@@ -70,6 +82,39 @@ router.use(ensureAuthenticated)
 router.get("/sales", listSalesController.handle);
 router.put("/sales/:id", updateSalesController.handle);
 router.delete("/sales/:id", deleteSalesController.handle);
+// #endregion
+
+// #region Category CHECK
+const authenticateCategoryController = new AuthenticateCategoryController();
+const createCategoryController = new CreateCategoryController();
+const listCategoryController = new ListCategoryController();
+const updateCategoryController = new UpdateCategoryController();
+const deleteCategoryController = new DeleteCategoryController();
+
+router.post("/ver", authenticateCategoryController.handle);
+router.post("/category", createCategoryController.handle);
+
+router.use(ensureAuthenticated) 
+router.get("/category", listCategoryController.handle);
+router.put("/category/:id", updateCategoryController.handle);
+router.delete("/category/:id", deleteCategoryController.handle);
+// #endregion
+
+// #region Product CHECK
+const authenticateProductController = new AuthenticateProductController();
+const createProductController = new CreateProductController();
+const listProductController = new ListProductController();
+const updateProductController = new UpdateProductController();
+const deleteProductController = new DeleteProductController();
+
+router.post("/olhar", authenticateProductController.handle);
+router.post("/product", createProductController.handle);
+
+router.use(ensureAuthenticated) 
+router.get("/product", listProductController.handle);
+router.put("/product/:id", updateProductController.handle);
+router.delete("/product/:id", deleteProductController.handle);
+
 // #endregion
 
 export {router}

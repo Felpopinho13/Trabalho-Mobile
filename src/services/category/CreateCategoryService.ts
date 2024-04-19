@@ -1,5 +1,5 @@
 import { hash } from "bcryptjs";
-import { UsersRepositories } from "../../repositories/UsersRepositories";
+import { CategoryRepository } from "../../repositories/CategoryRepositories";
 import { getCustomRepository } from "typeorm";
 interface ICategoryRequest {   name: string;
    }
@@ -8,16 +8,16 @@ class CreateCategoryService {
     if (!name) {
       throw new Error("Categoria incorreto");
     }
-    const usersRepository = getCustomRepository(UsersRepositories);
-    const userAlreadyExists = await usersRepository.findOne({
+    const categoryRepository = getCustomRepository(CategoryRepository);
+    const categoryAlreadyExists = await categoryRepository.findOne({
       name
     });
-    if (userAlreadyExists) {
+    if (categoryAlreadyExists) {
       throw new Error("User already exists");
     }
-    const user = usersRepository.create({  name  });
-    await usersRepository.save(user);
-    return user;
+    const category = categoryRepository.create({  name  });
+    await categoryRepository.save(category);
+    return category;
   }
 }
 export { CreateCategoryService };

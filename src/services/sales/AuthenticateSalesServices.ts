@@ -16,4 +16,5 @@ class AuthenticateSalesService {
     return token;
   }
 }
+
 export { AuthenticateSalesService };

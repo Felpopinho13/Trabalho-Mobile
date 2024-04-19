@@ -11,7 +11,7 @@ class DeleteCategoryService {
       });
 
       if (!categoryAlreadyExists) {
-          throw new Error("User not exists");
+          throw new Error("Category not exists");
       }
       return await categoryRepository.delete(id);           
   }
