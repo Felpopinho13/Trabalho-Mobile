@@ -7,6 +7,12 @@ class Product {
     readonly id!: string ;  
     @Column()
         nome!: string;
+    @Column()
+        validade!: string;
+    @Column()
+        fabricante!: string;
+    @Column()
+        precoEstoque!: string;
     @CreateDateColumn()
         created_at!: Date;  
     @UpdateDateColumn()

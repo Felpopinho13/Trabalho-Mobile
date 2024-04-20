@@ -3,13 +3,16 @@ import { UpdateProductService } from "../../services/product/UpdateProductServic
 class UpdateProductController {
 
   async handle(request: Request, response: Response) {
-    const { id, nome } = request.body;
+    const { id, nome, validade, fabricante, precoEstoque  } = request.body;
 
     const updateProductService = new UpdateProductService();
 
     const product = await updateProductService.execute({
       id,
-      nome
+      nome,
+      validade,
+      fabricante,
+      precoEstoque
     });
  
     return response.json(product);

@@ -14,7 +14,7 @@ import {Entity,PrimaryColumn,Column,CreateDateColumn,UpdateDateColumn,
     @Column()
         quantidade!: number;
     @Column()
-        valor!: number;
+        valor!: string;
     @Column()   
         desconto!: number;
     @CreateDateColumn()

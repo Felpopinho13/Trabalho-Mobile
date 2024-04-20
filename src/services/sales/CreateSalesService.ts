@@ -1,7 +1,7 @@
 import { hash } from "bcryptjs";
 import { SalesRepositories } from "../../repositories/SalesRepositories";
 import { getCustomRepository } from "typeorm";
-interface ISalesRequest { codproduto:number; produto: string; cliente: string; quantidade: number; valor: number; desconto: number; }
+interface ISalesRequest { codproduto:number; produto: string; cliente: string; quantidade: number; valor: string; desconto: number; }
 class CreateSalesService {
   async execute({ codproduto, produto, cliente, quantidade, valor, desconto }: ISalesRequest) {
     if (!codproduto) {

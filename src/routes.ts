@@ -68,7 +68,7 @@ router.put("/clients/:id", updateClientController.handle);
 router.delete("/clients/:id", deleteClientController.handle);
 // #endregion
 
-// #region Sales CHECK
+// #region Sales CHECK 
 const authenticateSalesController = new AuthenticateSalesController();
 const createSalesController = new CreateSalesController();
 const listSalesController = new ListSalesController();
@@ -84,7 +84,7 @@ router.put("/sales/:id", updateSalesController.handle);
 router.delete("/sales/:id", deleteSalesController.handle);
 // #endregion
 
-// #region Category CHECK
+// #region Category CHECK 
 const authenticateCategoryController = new AuthenticateCategoryController();
 const createCategoryController = new CreateCategoryController();
 const listCategoryController = new ListCategoryController();
@@ -100,7 +100,7 @@ router.put("/category/:id", updateCategoryController.handle);
 router.delete("/category/:id", deleteCategoryController.handle);
 // #endregion
 
-// #region Product CHECK
+// #region Product 
 const authenticateProductController = new AuthenticateProductController();
 const createProductController = new CreateProductController();
 const listProductController = new ListProductController();
