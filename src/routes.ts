@@ -64,7 +64,7 @@ router.post("/clients", createClientController.handle);
 
 router.use(ensureAuthenticated)
 router.get("/clients", listClientController.handle);
-router.put("/clients/:id", updateClientController.handle);
+router.put("/clients", updateClientController.handle);
 router.delete("/clients/:id", deleteClientController.handle);
 // #endregion
 
@@ -80,7 +80,7 @@ router.post("/sales", createSalesController.handle);
 
 router.use(ensureAuthenticated) 
 router.get("/sales", listSalesController.handle);
-router.put("/sales/:id", updateSalesController.handle);
+router.put("/sales", updateSalesController.handle);
 router.delete("/sales/:id", deleteSalesController.handle);
 // #endregion
 
@@ -96,7 +96,7 @@ router.post("/category", createCategoryController.handle);
 
 router.use(ensureAuthenticated) 
 router.get("/category", listCategoryController.handle);
-router.put("/category/:id", updateCategoryController.handle);
+router.put("/category", updateCategoryController.handle);
 router.delete("/category/:id", deleteCategoryController.handle);
 // #endregion
 
@@ -112,7 +112,7 @@ router.post("/product", createProductController.handle);
 
 router.use(ensureAuthenticated) 
 router.get("/product", listProductController.handle);
-router.put("/product/:id", updateProductController.handle);
+router.put("/product", updateProductController.handle);
 router.delete("/product/:id", deleteProductController.handle);
 
 // #endregion
