@@ -6,7 +6,7 @@ interface IUserRequest {   name: string;
 class CreateUserService {
   async execute({ name, email, admin = false, password }: IUserRequest) {
     if (!email) {
-      throw new Error("Email incorreto");
+      throw new Error("Digite algo para cadastro");
     }
     const usersRepository = getCustomRepository(UsersRepositories);
     const userAlreadyExists = await usersRepository.findOne({

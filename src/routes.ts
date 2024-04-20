@@ -48,7 +48,7 @@ router.post("/users", createUserController.handle);
 
 router.use(ensureAuthenticated)
 router.get("/users", listUsersController.handle);
-router.put("/users/:id", updateUserController.handle);
+router.put("/users/", updateUserController.handle);
 router.delete("/users/:id", deleteUserController.handle);
 // #endregion
 
